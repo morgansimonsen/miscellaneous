@@ -4,7 +4,7 @@
 	Script to use VLC to play the BBC World Service stream using  VLC
 #>
 
-$GinikoURL = "giniko.com/watch.php?id=216"
+$GinikoURL = "http://www.giniko.com/watch.php?id=216"
 $VLCPath = "C:\Program Files\VideoLAN\VLC\vlc.exe"
 $userAgent = ":http-user-agent=Mozilla/5.0"
 
