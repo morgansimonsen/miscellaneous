@@ -19,8 +19,8 @@ Param(
    [string]$AlertRecipientSMTPAddress
 )
 
-$SMTPServerUsername = "morgan.simonsen@gmail.com"
-$SMTPServerPassword = "vuchlnmfeqxdivjk"
+$SMTPServerUsername = "<username>"
+$SMTPServerPassword = "<plain text password here>"
 $SMTPServerSecurePassword = ConvertTo-SecureString $SMTPServerPassword -AsPlainText -Force
 $SMTPServerCredential = New-Object System.Management.Automation.PSCredential ($SMTPServerUsername, $SMTPServerSecurePassword)
 
