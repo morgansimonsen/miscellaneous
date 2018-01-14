@@ -3,6 +3,9 @@
 #
 # Get-EventLog -LogName System -Source "Disk" -InstanceId 7
 # Write-EventLog –LogName System –Source "Disk" –EntryType Error –EventID 7 –Message "This is a test message."
+#
+# https://social.technet.microsoft.com/Forums/ie/en-US/382b9023-01a9-4131-b2f2-8560b593bc3f/scheduled-task-trigerred-by-event-getting-data-into-the-scripts-as-parameters-question?forum=winserverpowershell
+# https://vijredblog.wordpress.com/2014/03/21/task-scheduler-event-log-trigger-include-event-data-in-mail/
 
 [CmdletBinding()]
 Param(
