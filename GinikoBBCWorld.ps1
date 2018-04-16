@@ -18,4 +18,4 @@ $video2 = $video.ie8_item().outerhtml -split " "
 $url = $video2[1] -replace "src=",""
 
 # Start the stream
-Start-Process -FilePath $VLCPath.'(default)' -ArgumentList ($url+" "+$userAgent)
+Start-Process -FilePath $VLCPath.'(default)' -ArgumentList ($url+" "+$userAgent+" --video-on-top --qt-minimal-view --qt-opacity=0.6")
