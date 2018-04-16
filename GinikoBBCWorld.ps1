@@ -5,7 +5,7 @@
 #>
 
 $GinikoURL = "http://www.giniko.com/watch.php?id=216"
-$VLCPath = "C:\Program Files (x86)\VideoLAN\VLC\vlc.exe"
+$VLCPath = Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\App Paths\vlc.exe"
 $userAgent = ":http-user-agent=Mozilla/5.0"
 
 # Get the web page with the auth key
@@ -18,4 +18,4 @@ $video2 = $video.ie8_item().outerhtml -split " "
 $url = $video2[1] -replace "src=",""
 
 # Start the stream
-Start-Process -FilePath $VLCPath -ArgumentList ($url+" "+$userAgent)
+Start-Process -FilePath $VLCPath.'(default)' -ArgumentList ($url+" "+$userAgent)
