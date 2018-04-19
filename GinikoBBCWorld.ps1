@@ -2,6 +2,9 @@
 	GinikoBBCWorld.ps1
 
 	Script to use VLC to play the BBC World Service stream using  VLC
+
+	References:
+	- https://wiki.videolan.org/VLC_command-line_help/
 #>
 
 $GinikoURL = "http://www.giniko.com/watch.php?id=216"
@@ -18,4 +21,4 @@ $video2 = $video.ie8_item().outerhtml -split " "
 $url = $video2[1] -replace "src=",""
 
 # Start the stream
-Start-Process -FilePath $VLCPath.'(default)' -ArgumentList ($url+" "+$userAgent+" --video-on-top --qt-minimal-view --qt-opacity=0.6")
+Start-Process -FilePath $VLCPath.'(default)' -ArgumentList ($url+" "+$userAgent+" --video-on-top --qt-minimal-view --qt-opacity=1.0")
