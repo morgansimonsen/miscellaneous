@@ -2,6 +2,9 @@
 	GinikoBBCWorld.ps1
 
 	Script to use VLC to play the BBC World Service stream using  VLC
+
+	References:
+	- https://wiki.videolan.org/VLC_command-line_help/
 #>
 
 $GinikoURL = "http://www.giniko.com/watch.php?id=216"
