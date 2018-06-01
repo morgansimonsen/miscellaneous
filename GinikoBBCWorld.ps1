@@ -13,7 +13,7 @@ $VLCPath = Get-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersi
 $userAgent = ":http-user-agent=Mozilla/5.0"
 
 # Get the web page with the auth key
-$HTML = Invoke-WebRequest -Uri $GinikoURL #-UseBasicParsing
+$HTML = Invoke-WebRequest -Uri $GinikoURL -UseBasicParsing
 
 # Extract the URL and authN key
 $urldata = $html.Content -split "[`r`n]" | select-string -pattern "wmsAuthSign"
