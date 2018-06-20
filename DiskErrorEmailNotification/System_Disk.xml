@@ -2,7 +2,7 @@
 <Task version="1.4" xmlns="http://schemas.microsoft.com/windows/2004/02/mit/task">
   <RegistrationInfo>
     <Date>2018-01-14T03:17:56.632991</Date>
-    <Author>HOME-NAS\Administrator</Author>
+    <Author>.\Administrator</Author>
     <URI>\Event Viewer Tasks\System_Disk</URI>
   </RegistrationInfo>
   <Triggers>
@@ -10,7 +10,7 @@
       <Enabled>true</Enabled>
       <Subscription>&lt;QueryList&gt;&lt;Query Id="0" Path="System"&gt;&lt;Select Path="System"&gt;*[System[Provider[@Name='disk'] and (Level=2 or Level=3)]]&lt;/Select&gt;&lt;/Query&gt;&lt;/QueryList&gt;</Subscription>
       <ValueQueries>
-        <Value name="EventID">Event/System/EventId</Value>
+        <Value name="EventID">Event/System/EventID</Value>
         <Value name="EventCategory">Event/System/Level</Value>
         <Value name="ComputerName">Event/System/Computer</Value>
         <Value name="Disk">Event/EventData/Data</Value>
