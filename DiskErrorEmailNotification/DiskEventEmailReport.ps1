@@ -2,28 +2,28 @@
 # Morgan Simonsen
 #
 # Get-EventLog -LogName System -Source "Disk" -InstanceId 7
-# Write-EventLog –LogName System –Source "Disk" –EntryType Error –EventID 7 –Message "This is a test message."
+# Write-EventLog -LogName System -Source "Disk" -EntryType Error -EventID 7 -Message "This is a test message."
 # http://www.eventid.net/display.asp?eventid=7&source=disk
 
 [CmdletBinding()]
 Param(
-  [Parameter(Mandatory=$True,Position=1)]
-   [string]$computerName,
+    [Parameter(Mandatory=$True,Position=1)]
+    [string]$computerName,
 	
-  [Parameter(Mandatory=$True,Position=2)]
-   [int]$EventID,
-   
-  [Parameter(Mandatory=$True,Position=3)]
-   [int]$EventCategory,
+    [Parameter(Mandatory=$True,Position=2)]
+    [int]$EventID,
 
-  [Parameter(Mandatory=$True,Position=5)]
-   [string]$Disk,
+    [Parameter(Mandatory=$True,Position=3)]
+    [int]$EventCategory,
 
-   [Parameter(Mandatory=$True,Position=6)]
-   [string]$EventDateTime,
+    [Parameter(Mandatory=$True,Position=5)]
+    [string]$Disk,
+
+    [Parameter(Mandatory=$True,Position=6)]
+    [string]$EventDateTime,
 	
-   [Parameter(Mandatory=$True,Position=7)]
-   [string]$AlertRecipientSMTPAddress
+    [Parameter(Mandatory=$True,Position=7)]
+    [string]$AlertRecipientSMTPAddress
 )
 
 $SMTPServerUsername = "<username>"
