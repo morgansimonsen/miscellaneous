@@ -10,7 +10,7 @@ Param(
 
 $suspectDisks = Get-PhysicalDisk | where { ($_.OperationalStatus -ne "OK") -or ( $_.HealthStatus -ne "Healthy") }
 
-If ( $suspectDisks -ne "")
+If ( $suspectDisks -ne $null)
 {
 $EmailBody = @"
 <html>
