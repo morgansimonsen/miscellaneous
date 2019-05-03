@@ -8,9 +8,13 @@ Function Initialize-NotepadPlusPlus
 Function Enable-xNotepadPlusPlus
 {
     Initialize-NotepadPlusPlus
+    If (!( Test-Path -Path $NotepadRegPath ))
+    {
+        new-Item -Path $NotepadRegPath -Force
+    }
     New-ItemProperty -Path $NotepadRegPath `
                     -Name "Debugger" `
-                    -Value "$env:ProgramFiles\Notepad++\notepad++.exe -notepadStyleCmdline -z" `
+                    -Value "$nppPath -notepadStyleCmdline -z" `
                     -PropertyType String `
                     -Force
     #reg add "HKLM\Software\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\notepad.exe" /v "Debugger" /t REG_SZ /d "\"%ProgramFiles%\Notepad++\notepad++.exe\" -notepadStyleCmdline -z" /f
