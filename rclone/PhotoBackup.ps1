@@ -29,15 +29,15 @@ Param(
     [string]$rcloneDestination="remote-onedrive-personal:Backup/Photos_HOME-NAS/current",
 	
 	# KeepLogFile
-	[Parameter(Mandatory=$False,Position=5)]
+	[Parameter(Mandatory=$False,Position=6)]
     [switch]$KeepLogFile,
 
     # rcloneConfigFile
-	[Parameter(Mandatory=$False,Position=6)]
+	[Parameter(Mandatory=$False,Position=7)]
     [string]$rcloneConfigFile="C:\Users\Administrator\.config\rclone\rclone.conf",
 
     # Transcribe
-	[Parameter(Mandatory=$False,Position=7)]
+	[Parameter(Mandatory=$False,Position=8)]
     [switch]$Transcribe
 )
 $timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
@@ -66,7 +66,7 @@ $rcloneArguments = @(
     "--log-file"
     $LogFilePath
     "--stats-log-level NOTICE"
-	"--log-level NOTICE"
+	"--log-level INFO"
 	#"--stats-one-line"
     "--exclude Thumbs.db"
 )
