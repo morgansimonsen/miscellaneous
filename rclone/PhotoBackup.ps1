@@ -65,7 +65,7 @@ $rcloneArguments = @(
     "$rcloneConfigFile"
     "--log-file"
     $LogFilePath
-    "--stats-log-level NOTICE"
+    #"--stats-log-level NOTICE"
 	"--log-level INFO"
 	#"--stats-one-line"
     "--exclude Thumbs.db"
