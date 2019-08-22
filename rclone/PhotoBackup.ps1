@@ -53,7 +53,7 @@ $SMTPServerCredential = New-Object System.Management.Automation.PSCredential ($S
 $rclonepath = "$env:ProgramFiles\rclone\rclone.exe"
 
 
-$LogFilePath = Join-Path -Path $env:temp -ChildPath "rclone-stats-$computername-$timestamp.log"
+$LogFilePath = Join-Path -Path $env:temp -ChildPath "rclone-$computername-$timestamp.log"
 
 $rcloneArguments = @(
     "copy"
