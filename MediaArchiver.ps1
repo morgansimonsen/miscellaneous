@@ -60,7 +60,7 @@ function Write-Log {
     )
 
     function TimeStamp {
-        Get-Date -Format 'yyyyMMdd-hh:mm:ss'
+        Get-Date -Format 'yyyyMMdd-HH:mm:ss'
     }
 
     "[$(TimeStamp)]$Message" | Tee-Object -FilePath $Path -Append | Write-Host
