@@ -103,7 +103,7 @@ ForEach ( $item in $archiveItems )
 
     # Remove contents of archived folder
     Write-Log -Message "Removing contents from $($item.DirectoryName)"
-    #Remove-Item -Path ( Join-Path -Path $item.DirectoryName -ChildPath "\*" ) -Recurse
+    Remove-Item -Path ( Join-Path -Path $item.DirectoryName -ChildPath "\*" ) -Recurse
 
     # Generate video explaining that item has been archived
     Write-Log -Message "Creating archive message video..."
