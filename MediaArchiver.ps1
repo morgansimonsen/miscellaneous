@@ -3,17 +3,20 @@
     Archive media to removable drive to save space on NAS disks
 
     .DESCRIPTION
-    Scan root folder for subfolders with a signal file (archive.me)
-    Copy folders to specified removable drive
-    Delete contents of folders, including signal file
-    Generate video file in folder showing that the item has been archived and to which disk
-    Output log
+    - Scan root folder for subfolders with a signal file (archive.me)
+    - Copy folders to specified removable drive
+    - Delete contents of folders, including signal file
+    - Generate video file in folder showing that the item has been archived and to which disk
+    - Output log
 
     .PARAMETER DestinationDrive
     The drive letter of the drive to archive to
 
     .PARAMETER SourcePath
     The path to start search for signal file from
+
+    .NOTES
+    https://stackoverflow.com/questions/22710099/ffmpeg-create-blank-screen-with-text-video
 #>
 
 [CmdletBinding()]
@@ -48,7 +51,7 @@ Param
     [System.IO.FileInfo]$SourcePath
 )
 
-$ffmpegPath = "C:\Users\morga\Downloads\ffmpeg-20200209-5ad1c1a-win64-static\bin\ffmpeg.exe"
+$ffmpegPath = "$HOME\Downloads\ffmpeg-20200209-5ad1c1a-win64-static\bin\ffmpeg.exe"
 $signalFilename = "archive.me"
 $StartTime = Get-Date -Format yyyyMMdd-HHmmss
 $script:LogFile = Join-Path -Path $DestinationDrive -ChildPath "MediaArchiver-$StartTime.log"
@@ -63,7 +66,7 @@ function Write-Log {
         Get-Date -Format 'yyyyMMdd-HH:mm:ss'
     }
 
-    "[$(TimeStamp)]$Message" | Tee-Object -FilePath $Path -Append | Write-Host
+    "[$(TimeStamp)]$Message" | Tee-Object -FilePath $Path -Append | Write-Verbose
 }
 
 Write-Log -Message "Starting media archiving job..."
