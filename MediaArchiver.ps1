@@ -125,3 +125,4 @@ ForEach ( $item in $archiveItems )
 }
 
 Write-Log -Message "Media archive operation completed!"
+Copy-Item -Path $LogFile -Destination $DestinationDrive
