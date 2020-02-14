@@ -17,6 +17,7 @@
 
     .NOTES
     https://stackoverflow.com/questions/22710099/ffmpeg-create-blank-screen-with-text-video
+    https://forums.plex.tv/t/offlining-media/89084/9
 #>
 
 [CmdletBinding()]
