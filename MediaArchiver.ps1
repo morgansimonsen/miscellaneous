@@ -112,12 +112,20 @@ ForEach ( $item in $archiveItems )
     # Generate video explaining that item has been archived
     Write-Log -Message "Creating archive message video..."
     $ffmpegfile = Join-Path -Path $($item.DirectoryName) -ChildPath "archived.mp4"
+
+    Switch ( $item.DirectoryName )
+    {
+        { $_ -contains "720p" } { $ffmpegResolution = "1280x720" }
+        { $_ -contains "1080p" } { $ffmpegResolution = "1920x1080" }
+        Default { $ffmpegResolution = "1920x1080" }
+    }
+
     $ffmpegArgs = @(
         "-n"
         "-nostats"
         "-loglevel 0"
         "-f lavfi"
-        "-i color=c=black:s=1280x720:d=30"
+        "-i color=c=black:s=$($ffmpegResolution):d=30"
         "-vf ""drawtext=fontfile=/WINDOWS/fonts/arial.ttf:fontsize=50:fontcolor=white:x=(w-text_w)/2:y=(h-text_h)/2:text='$($archiveMessage)'"""
         """$ffmpegfile"""
     )
