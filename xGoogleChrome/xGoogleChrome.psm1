@@ -31,10 +31,12 @@ Function Disable-GoogleChromeSwReporter
         [String]$SwReporterPath = "$Env:LOCALAPPDATA\google\chrome\User Data\SwReporter\"
     )
 
+    # Find all exe files under swreporter path
     $SwReporterExes = Get-ChildItem -Path $SwReporterPath -Filter "*.exe" -Recurse
 
     ForEach ( $SwReporterExe in $SwReporterExes)
     {
+        Write-Information -MessageData "Processing exe file: $SwReporterExe.FullName" -InformationAction Continue
         $SwReporterACL = Get-Acl -Path $SwReporterExe.FullName
         # Disable inheritance and delete all inherited permissions
         $SwReporterACL.SetAccessRuleProtection($true,$false)
@@ -75,10 +77,12 @@ Function Enable-GoogleChromeSwReporter
         [String]$SwReporterPath = "$Env:LOCALAPPDATA\google\chrome\User Data\SwReporter\"
     )
 
+    # Find all exe files under swreporter path
     $SwReporterExes = Get-ChildItem -Path $SwReporterPath -Filter "*.exe" -Recurse
 
     ForEach ( $SwReporterExe in $SwReporterExes)
     {
+        Write-Information -MessageData "Processing exe file: $SwReporterExe.FullName" -InformationAction Continue
         $SwReporterACL = Get-Acl -Path $SwReporterExe.FullName
         # Enable inheritance and copy all inherited permissions
         $SwReporterACL.SetAccessRuleProtection($false,$true)
