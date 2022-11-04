@@ -5,10 +5,10 @@ Check if any disks have lost communication and then send email
 [CmdletBinding()]
 Param(
     [Parameter(Mandatory=$false,Position=0)]
-    [string]$AlertRecipientSMTPAddress=$env:SMTP_NotificationRecipient
+    [string]$AlertRecipientSMTPAddress="morgan@simonsen.bz"
 )
 
-$suspectDisks = Get-PhysicalDisk | where { ($_.OperationalStatus -ne "OK") -or ( $_.HealthStatus -ne "Healthy") }
+$suspectDisks = Get-PhysicalDisk | Where-Object { ($_.OperationalStatus -ne "OK") -or ( $_.HealthStatus -ne "Healthy") }
 
 If ( $suspectDisks -ne $null)
 {
@@ -39,8 +39,8 @@ $EmailBody = @"
     $EmailSubject = "Abnormal disk situation $env:COMPUTERNAME"
     $SMTPServer = "smtp.gmail.com"
     $SMTPServerPort = "587"
-    $SMTPServerUsername = $env:SMTP_Username
-    $SMTPServerPassword = $env:SMTP_Password
+    $SMTPServerUsername = "morgan.simonsen@gmail.com"
+    $SMTPServerPassword = "guyhjgejgaiqkplz"
     $SMTPServerSecurePassword = ConvertTo-SecureString $SMTPServerPassword -AsPlainText -Force
     $SMTPServerCredential = New-Object System.Management.Automation.PSCredential ($SMTPServerUsername, $SMTPServerSecurePassword)
     
