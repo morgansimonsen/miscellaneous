@@ -40,7 +40,7 @@ $EmailBody = @"
     $SMTPServer = "smtp.gmail.com"
     $SMTPServerPort = "587"
     $SMTPServerUsername = "morgan.simonsen@gmail.com"
-    $SMTPServerPassword = "guyhjgejgaiqkplz"
+    $SMTPServerPassword = "that was really stupid"
     $SMTPServerSecurePassword = ConvertTo-SecureString $SMTPServerPassword -AsPlainText -Force
     $SMTPServerCredential = New-Object System.Management.Automation.PSCredential ($SMTPServerUsername, $SMTPServerSecurePassword)
     
