@@ -8,7 +8,7 @@ Param(
     [string]$AlertRecipientSMTPAddress="morgan@simonsen.bz"
 )
 
-$suspectDisks = Get-PhysicalDisk | Where-Object { ($_.OperationalStatus -ne "OK") -or ( $_.HealthStatus -ne "Healthy") }
+$suspectDisks = Get-PhysicalDisk | where { ($_.OperationalStatus -ne "OK") -or ( $_.HealthStatus -ne "Healthy") }
 
 If ( $suspectDisks -ne $null)
 {
@@ -39,8 +39,8 @@ $EmailBody = @"
     $EmailSubject = "Abnormal disk situation $env:COMPUTERNAME"
     $SMTPServer = "smtp.gmail.com"
     $SMTPServerPort = "587"
-    $SMTPServerUsername = "morgan.simonsen@gmail.com"
-    $SMTPServerPassword = "that was really stupid"
+    $SMTPServerUsername = $env:SMTP_Username
+    $SMTPServerPassword = $env:SMTP_Password
     $SMTPServerSecurePassword = ConvertTo-SecureString $SMTPServerPassword -AsPlainText -Force
     $SMTPServerCredential = New-Object System.Management.Automation.PSCredential ($SMTPServerUsername, $SMTPServerSecurePassword)
     
